@@ -1,0 +1,107 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application & Route Filters
+|--------------------------------------------------------------------------
+|
+| Below you will find the "before" and "after" events for the application
+| which may be used to do any work before or after a request into your
+| application. Here you may also register your custom route filters.
+|
+*/
+
+App::before(function($request)
+{
+	//
+});
+
+
+App::after(function($request, $response)
+{
+	//
+});
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Filters
+|--------------------------------------------------------------------------
+|
+| The following filters are used to verify that the user of the current
+| session is logged into this application. Also, a "guest" filter is
+| responsible for performing the opposite. Both provide redirects.
+|
+*/
+
+Route::filter('auth', function()
+{
+	if (Auth::guest()) return Redirect::route('login');
+});
+
+
+Route::filter('guest', function()
+{
+	if (Auth::check()) return Redirect::to('/');
+});
+
+/*
+|--------------------------------------------------------------------------
+| CSRF Protection Filter
+|--------------------------------------------------------------------------
+|
+| The CSRF filter is responsible for protecting your application against
+| cross-site request forgery attacks. If this special token in a user
+| session does not match the one given in this request, we'll bail.
+|
+*/
+
+Route::filter('csrf', function()
+{
+	if (Session::getToken() != Input::get('csrf_token'))
+	{
+		throw new Illuminate\Session\TokenMismatchException;
+	}
+});
+
+/*
+|--------------------------------------------------------------------------
+| API Filters
+|--------------------------------------------------------------------------
+|
+| Authentication and rate limiting.
+|
+*/
+
+Route::filter('api.auth', function()
+{
+	if (!Request::getUser())
+	{
+		App::abort(401, 'A valid API key is required');
+	}
+
+	$user = User::where('api_key', '=', Request::getUser())->first();
+
+	if (!$user)
+	{
+		App::abort(401);
+	}
+
+	Auth::login($user);
+});
+
+Route::filter('api.limit', function()
+{
+	$key = sprintf('api:%s', Auth::user()->api_key);
+
+	// Create the key if it doesn't exist
+	apc_add($key, 0, 60*60);
+
+	// Increment by 1
+	$count = apc_inc($key);
+
+	// Fail if hourly requests exceeded
+	if ($count > Config::get('api.requests_per_hour'))
+	{
+		App::abort(403, 'Hourly request limit exceeded');
+	}
+});
