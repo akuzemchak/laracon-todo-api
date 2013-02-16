@@ -46,12 +46,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5d0e6ecc135421b5672b63c583a508fc71af55c7"
+                "reference": "1b15856ee51b92518cb28862d87f487f1f5c13fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5d0e6ecc135421b5672b63c583a508fc71af55c7",
-                "reference": "5d0e6ecc135421b5672b63c583a508fc71af55c7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1b15856ee51b92518cb28862d87f487f1f5c13fe",
+                "reference": "1b15856ee51b92518cb28862d87f487f1f5c13fe",
                 "shasum": ""
             },
             "require": {
@@ -105,7 +105,7 @@
                 "aws/aws-sdk-php": "2.1.*",
                 "mockery/mockery": "0.7.2"
             },
-            "time": "2013-02-15 16:15:55",
+            "time": "2013-02-16 13:26:14",
             "type": "library",
             "extra": {
                 "branch-alias": {

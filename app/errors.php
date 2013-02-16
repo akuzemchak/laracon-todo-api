@@ -42,7 +42,7 @@ App::error(function(Symfony\Component\HttpKernel\Exception\HttpException $e, $co
 App::error(function(ErrorMessageException $e)
 {
 	return Response::json(array(
-		'errors' => $e->getMessages()->all(),
+		'error' => $e->getMessages()->first(),
 	), 400);
 });
 
