@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Auth\UserInterface;
-use Illuminate\Support\Str;
 
 class User extends Eloquent implements UserInterface
 {
@@ -67,6 +66,6 @@ class User extends Eloquent implements UserInterface
 	 */
 	public static function createApiKey()
 	{
-		return Str::secureRandom(32);
+		return Str::random(32);
 	}
 }

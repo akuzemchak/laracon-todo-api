@@ -65,7 +65,7 @@ Route::group(array('prefix' => 'v1', 'before' => 'api.auth|api.limit'), function
 		$list = TaskList::findByOwnerAndId(Auth::user(), $id);
 		$list->delete();
 
-		return Response::json(null, 204);
+		return Response::make(null, 204);
 	})->where('id', '\d+');
 
 	// Get tasks for list
@@ -145,6 +145,6 @@ Route::group(array('prefix' => 'v1', 'before' => 'api.auth|api.limit'), function
 
 		$task->delete();
 
-		return Response::json(null, 204);
+		return Response::make(null, 204);
 	})->where('list_id', '\d+')->where('id', '\d+');
 });
