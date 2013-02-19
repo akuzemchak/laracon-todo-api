@@ -109,7 +109,7 @@ class TaskList extends Eloquent
 	{
 		$data = parent::toArray();
 
-		$data['id'] = (int) $this->id;
+		$data['id'] = (int) $data['id'];
 		$data['created_at'] = $this->fromDateTime($this->created_at);
 		$data['updated_at'] = $this->fromDateTime($this->updated_at);
 

@@ -30,7 +30,7 @@ App::error(function(Symfony\Component\HttpKernel\Exception\HttpException $e, $co
 		break;
 
 		default:
-			$default_message = 'An unexpected error occurred';
+			$default_message = 'An error was encountered';
 	}
 
 	return Response::json(array(
@@ -41,8 +41,10 @@ App::error(function(Symfony\Component\HttpKernel\Exception\HttpException $e, $co
 // ErrorMessageException handler
 App::error(function(ErrorMessageException $e)
 {
+	$messages = $e->getMessages()->all();
+
 	return Response::json(array(
-		'error' => $e->getMessages()->first(),
+		'error' => $messages[0],
 	), 400);
 });
 
