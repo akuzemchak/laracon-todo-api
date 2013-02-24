@@ -1,5 +1,7 @@
 # Laracon 2013 Demo API
 
+**See the presentation slides on [Speaker Deck](https://speakerdeck.com/akuzemchak/simple-api-development-with-laravel).**
+
 ## Setup Instructions
 
 1. Make sure you have [Composer](http://getcomposer.org/) installed. I recommend [installing it globally](http://getcomposer.org/doc/00-intro.md#globally).
