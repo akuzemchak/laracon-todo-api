@@ -9,17 +9,8 @@ class DatabaseSeeder extends Seeder
 	 */
 	public function run()
 	{
-		$this->call('UserTableSeeder');
-	}
-}
-
-class UserTableSeeder extends Seeder
-{
-	public function run()
-	{
-		User::create(array(
-			'username' => 'admin',
-			'password' => 'admin',
-		));
+		$this->call('UserSeeder');
+		$this->call('ListSeeder');
+		$this->call('TaskSeeder');
 	}
 }
