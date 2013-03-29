@@ -3,3 +3,4 @@
 
 # Composer
 /vendor
+/bootstrap/compiled.php

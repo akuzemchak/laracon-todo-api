@@ -6,8 +6,6 @@
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
 
-define('LARAVEL_START', microtime(true));
-
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -49,3 +47,16 @@ $app = require_once __DIR__.'/../bootstrap/start.php';
 */
 
 $app->run();
+
+/*
+|--------------------------------------------------------------------------
+| Shutdown The Application
+|--------------------------------------------------------------------------
+|
+| Once the app has finished running. We will fire off the shutdown events
+| so that any final work may be done by the application before we shut
+| down the process. This is the last thing to happen to the request.
+|
+*/
+
+$app->shutdown();
