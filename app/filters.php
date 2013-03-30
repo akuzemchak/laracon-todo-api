@@ -94,10 +94,10 @@ Route::filter('api.limit', function()
 	$key = sprintf('api:%s', Auth::user()->api_key);
 
 	// Create the key if it doesn't exist
-	apc_add($key, 0, 60*60);
+	Cache::add($key, 0, 60);
 
 	// Increment by 1
-	$count = apc_inc($key);
+	$count = Cache::increment($key);
 
 	// Fail if hourly requests exceeded
 	if ($count > Config::get('api.requests_per_hour'))
