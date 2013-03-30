@@ -1,8 +1,10 @@
 # Laracon 2013 Demo API
 
-**See the presentation slides on [Speaker Deck](https://speakerdeck.com/akuzemchak/simple-api-development-with-laravel).**
+**See the presentation slides on [Speaker Deck](https://speakerdeck.com/akuzemchak/simple-api-development-with-laravel) or the video on [YouTube](http://www.youtube.com/watch?v=xa-FRWDxJrI).**
 
 ## Setup Instructions
+
+_**Please note:** by default this API requires that you have [APC](http://www.php.net/manual/en/book.apc.php) installed for rate limiting. You can change the driver if desired in `app/config/cache.php`._
 
 1. Make sure you have [Composer](http://getcomposer.org/) installed. I recommend [installing it globally](http://getcomposer.org/doc/00-intro.md#globally).
 2. Clone or download this repository.
