@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	"accepted"        => ":attribute must be accepted`",
+	"accepted"        => ":attribute must be accepted",
 	"active_url"      => ":attribute is not a valid URL",
 	"after"           => ":attribute must be a date after :date",
 	"alpha"           => ":attribute may only contain letters",
@@ -37,7 +37,6 @@ return array(
 	"in"              => ":attribute is invalid",
 	"integer"         => ":attribute must be an integer",
 	"ip"              => ":attribute must be a valid IP address",
-	"match"           => ":attribute is incorrectly formatted",
 	"max"             => array(
 		"numeric"     => ":attribute must be less than :max",
 		"file"        => ":attribute must be less than :max kilobytes",
@@ -49,12 +48,15 @@ return array(
 		"file"        => ":attribute must be at least :min kilobytes",
 		"string"      => ":attribute must be at least :min characters",
 	),
-	"notin"           => ":attribute is invalid",
-	"numeric"         => ":attribute must be a number",
-	"required"        => ":attribute is required",
-	"required_with"   => ":attribute is required when :values is present",
-	"same"            => ":attribute and :other must match",
-	"size"            => array(
+	"not_in"           => ":attribute is invalid",
+	"numeric"          => ":attribute must be a number",
+	"regex"            => ":attribute is formatted incorrectly",
+	"required"         => ":attribute is required",
+	"required_if"      => ":attribute is required when :other is :value",
+	"required_with"    => ":attribute is required when :values is present",
+	"required_without" => ":attribute is required when :values is not present",
+	"same"             => ":attribute and :other must match",
+	"size"             => array(
 		"numeric"    => ":attribute must be :size",
 		"file"       => ":attribute must be :size kilobytes",
 		"string"     => ":attribute must be :size characters",
